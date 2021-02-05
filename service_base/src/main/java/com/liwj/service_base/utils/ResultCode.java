@@ -1,4 +1,4 @@
-package com.lwj.service_base.utils;
+package com.liwj.service_base.utils;
 
 /**
  * @version 1.0<br>

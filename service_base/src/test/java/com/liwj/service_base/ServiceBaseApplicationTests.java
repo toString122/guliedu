@@ -1,4 +1,4 @@
-package com.lwj.service_base;
+package com.liwj.service_base;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
