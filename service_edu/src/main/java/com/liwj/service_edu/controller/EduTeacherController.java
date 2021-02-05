@@ -3,6 +3,7 @@ package com.liwj.service_edu.controller;
 
 import com.liwj.service_edu.entity.EduTeacher;
 import com.liwj.service_edu.service.EduTeacherService;
+import com.lwj.service_base.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,14 +25,19 @@ public class EduTeacherController {
     private EduTeacherService teacherService;
 
     @GetMapping("findAllTea")
-    public List<EduTeacher> findAllTea(){
+    public R findAllTea(){
         List<EduTeacher> list = teacherService.list(null);
-        return list;
+        return R.ok().code(20000).msg("成功").data("item",list);
     }
 
     @DeleteMapping("delTea/{id}")
-    public boolean delTea(@PathVariable("id") String id){
-        return teacherService.removeById(id);
+    public R delTea(@PathVariable("id") String id){
+        boolean b = teacherService.removeById(id);
+        if (b){
+            return R.ok();
+        }else {
+            return R.error();
+        }
     }
 
 }
