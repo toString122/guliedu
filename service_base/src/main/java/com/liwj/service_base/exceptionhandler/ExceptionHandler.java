@@ -14,6 +14,19 @@ public class ExceptionHandler {
     public R error(Exception e){
         e.printStackTrace();
         return R.error().msg("执行了全局异常处理。。。");
-
     }
+
+    /**
+     * 自定义异常处理
+     * @param e
+     * @return
+     */
+    @org.springframework.web.bind.annotation.ExceptionHandler(GuliException.class)
+    @ResponseBody
+    public R error(GuliException e){
+        e.printStackTrace();
+        return R.error().code(e.getCode()).msg(e.getMsg());
+    }
+
+
 }

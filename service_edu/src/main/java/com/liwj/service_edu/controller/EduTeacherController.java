@@ -4,6 +4,7 @@ package com.liwj.service_edu.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.liwj.service_base.exceptionhandler.GuliException;
 import com.liwj.service_edu.entity.EduTeacher;
 import com.liwj.service_edu.entity.vo.TeacherQuery;
 import com.liwj.service_edu.service.EduTeacherService;
@@ -31,6 +32,11 @@ public class EduTeacherController {
 
     @GetMapping("findAllTea")
     public R findAllTea(){
+//        try {
+//            final int i = 10 / 0;
+//        } catch (Exception e) {
+//            throw new GuliException(20001,"执行了自定义异常处理");
+//        }
         List<EduTeacher> list = teacherService.list(null);
         return R.ok().code(20000).msg("成功").data("item",list);
     }
