@@ -2,9 +2,10 @@ package com.liwj.service_base.exceptionhandler;
 
 
 import com.liwj.service_base.utils.R;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+@Slf4j
 @ControllerAdvice
 public class ExceptionHandler {
 
@@ -25,6 +26,7 @@ public class ExceptionHandler {
     @ResponseBody
     public R error(GuliException e){
         e.printStackTrace();
+        log.error(e.getMsg());
         return R.error().code(e.getCode()).msg(e.getMsg());
     }
 
