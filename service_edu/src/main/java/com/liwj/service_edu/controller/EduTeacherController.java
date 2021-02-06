@@ -23,6 +23,7 @@ import java.util.List;
  * @author liwj
  * @since 2021-02-05
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/service_edu/edu-teacher")
 public class EduTeacherController {
@@ -106,7 +107,7 @@ public class EduTeacherController {
     }
 
     @GetMapping("getTea/{id}")
-    public R getTea(@PathVariable Long id){
+    public R getTea(@PathVariable String id){
         final EduTeacher teacher = teacherService.getById(id);
         return R.ok().data("teacher",teacher);
     }
