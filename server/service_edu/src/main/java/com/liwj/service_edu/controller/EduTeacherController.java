@@ -88,6 +88,8 @@ public class EduTeacherController {
             queryWrapper.le("gmt_modified",end);
         }
 
+        queryWrapper.orderByDesc("gmt_create");
+
 
         final IPage<EduTeacher> teaPage = teacherService.page(page,queryWrapper);
         final long total = teaPage.getTotal();
