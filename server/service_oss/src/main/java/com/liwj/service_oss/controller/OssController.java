@@ -19,9 +19,10 @@ public class OssController {
     @PostMapping("uploadFile")
     public R uploadOssFile(MultipartFile file){
         final String url = ossService.uploadAvatar(file);
-
-
-
-        return R.ok();
+        if (url!=null){
+            return R.ok().data("url",url);
+        }else {
+            return R.error();
+        }
     }
 }
