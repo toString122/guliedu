@@ -3,9 +3,9 @@ package com.liwj.service_edu.controller;
 import com.liwj.service_base.utils.R;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+
 @RestController
-@RequestMapping("/eduService/user")
+@RequestMapping("/service_edu/user")
 public class EduLoginController {
 
     @PostMapping("login")
