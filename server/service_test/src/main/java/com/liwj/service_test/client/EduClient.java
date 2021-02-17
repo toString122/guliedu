@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * FeignClients 调用edu服务中的方法
  */
-@FeignClient("service-edu")
+@FeignClient(name = "service-edu",fallback = EduClientImpl.class)
 @Component
 public interface EduClient {
     @DeleteMapping("/service_edu/edu-teacher/delTea/{id}")
